@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    1.使用cdn导入vue.js-->
+    <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+
+</head>
+<body>
+<!--2.vue层变成一个模板-->
+<div id ="app1">
+<!--    方法只能通过函数名+()调用-->
+    <div>currentTime1:{{currentTime1()}}}</div>
+<!--    计算属性可以直接通过函数名调用-->
+    <div>currentTime2:{{currentTime2}}}</div>
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app1",
+        data:{
+            message: "hello,dly"
+        },
+        methods:{
+            currentTime1: function () {
+                return Date.now(); //返回一个时间戳
+            }
+        },
+        computed:{
+            // 计算属性 methods，computed方法名不能同名，重名胡只会调用methods的方法
+            currentTime2: function () {
+                this.message;
+                // 返回一个时间戳
+                return Date.now();
+            }
+        }
+    });
+</script>
+</body>
+</html>

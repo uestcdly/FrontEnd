@@ -21,3 +21,5 @@
         Vue 组件
     8. demo8.html:
         Axios异步通信测试
+    9. demo9.html:
+        计算属性实验
