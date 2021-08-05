@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    1.使用cdn导入vue.js-->
+    <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+
+</head>
+<body>
+<!--2.vue层变成一个模板-->
+<div id ="app1">
+    <fruit>
+        <fruit-title slot="fruit-title" v-bind:name="title"></fruit-title>
+        <fruit-items slot="fruit-items" v-for="(item,index) in fruitItems"
+                     v-bind:item="item" v-bind:index="index"
+                     v-on:remove="removeItems(index)"></fruit-items>
+    </fruit>
+
+</div>
+<script>
+    // slot 插槽 这个组件要定义在前面不然出不来数据
+    Vue.component("fruit",{
+        template: '<div>\n' +
+            '        <slot name="fruit-title"></slot>\n' +
+            '        <ul>\n' +
+            '            <slot name="fruit-items"></slot>\n' +
+            '        </ul>\n' +
+            '    </div>'
+    });
+    Vue.component("fruit-title",{
+        //属性
+        props:['name'],
+        template:'<h3>{{name}}</h3>'
+    })
+    Vue.component("fruit-items",{
+        //属性
+        props:['item','index'],
+        template:'<li>{{index}}---{{item}} <button @click="remove">删除</button></li>',
+        methods:{
+            remove:function (index) {
+                // this.$emit 自定义事件分发
+                this.$emit("remove",index)
+            }
+        }
+    })
+    var vm = new Vue({
+        el: "#app1",
+        data:{
+            // 标题
+            title: "水果系列",
+            // 水果系列列表
+            fruitItems: ['西瓜','香蕉','哈密瓜','苹果','榴莲']
+        },
+        methods:{
+            removeItems: function (index) {
+                console.log("删除了"+this.fruitItems[index]+" OK!");
+                //splice() 方法用于添加或删除数组中的元素
+                // splice(index,1): 删除第index个元素
+                // splice(index,0): 删除0个
+                this.fruitItems.splice(index,1);
+            }
+        }
+    });
+</script>
+</body>
+</html>
