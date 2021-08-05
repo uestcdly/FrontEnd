@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    1.使用cdn导入vue.js-->
+    <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+
+</head>
+<body>
+<!--2.vue层变成一个模板-->
+<div id ="app1">
+    {{message}}
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app1",
+        data:{
+            message: "hello,dly"
+        }
+    });
+</script>
+</body>
+</html>
