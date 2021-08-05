@@ -15,3 +15,9 @@
         v-for:循环
     5. demo5.html:
         v-on:绑定【事件】
+    6. demo6.html:
+        表单展示双向绑定功能
+    7. demo7.html:
+        Vue 组件
+    8. demo8.html:
+        Axios异步通信测试

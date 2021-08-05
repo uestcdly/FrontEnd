@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue组件</title>
+<!--    1.使用cdn导入vue.js-->
+    <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+    <!--导入axios-->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+</head>
+<body>
+<!--2.vue层变成一个模板-->
+<div id ="app1">
+    <div>{{info.name}}</div>
+    <a v-bind:href="info.url">点击链接</a>
+    <li v-for="link in info.links">
+        <a v-bind:href="link.url">{{link.url}}}</a>
+    </li>
+</div>
+
+<script>
+
+    var vm = new Vue({
+        el: "#app1",
+        data:{
+           items:["no1","no2","no3"]
+        },
+        // data: vm的属性
+        // data(): vm的方法
+        data(){
+            return{
+                //请求的返回参数，必须与JSON字符串一样
+                info:{
+                    // null
+                    name:null,
+                    age: null,
+                    sex: null,
+                    url: null,
+                    address: {
+                        street: null,
+                        city: null,
+                        country: null
+                    },
+                    links:[]
+                    }
+                }
+            },
+
+            //钩子函数，链式编程，ES6新特性
+        mounted(){
+            axios.get("./resource/data.json").then(respone=>(this.info=respone.data))
+        }
+
+
+    });
+</script>
+</body>
+</html>
