@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    1.使用cdn导入vue.js-->
+    <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+
+</head>
+<body>
+<!--2.vue层变成一个模板-->
+<div id ="app1">
+    <li v-for="item in items">
+        姓名: {{item.name}}, 年龄:{{item.age}}
+    </li>
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app1",
+        data:{
+            // name: "test",
+            // message: "hello,dly"
+            items: [
+                {name:"小明",age:15},
+                {name:"小吴",age:20},
+                {name:"小道",age:50}
+            ]
+        }
+    });
+</script>
+</body>
+</html>
