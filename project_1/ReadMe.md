@@ -8,8 +8,10 @@
        vm.message="hello,mmm"
        "hello,mmm"
     2. demo2.html: VUE 基本语法
-        v-bind: 用来绑定元素属性
+        v-bind: 用来绑定【元素属性】
     3.demo3.html: 
         v-if:判断
     4. demo4.html：
         v-for:循环
+    5. demo5.html:
+        v-on:绑定【事件】
