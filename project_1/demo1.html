@@ -10,14 +10,14 @@
 <body>
 <!--2.vue层变成一个模板-->
 <div id ="app1">
-    {{message}}
+    {{message+","+name}}
 </div>
 <script>
     var vm = new Vue({
         el: "#app1",
         data:{
-            name: test,
-            message: "hello,dly"+name
+            name: "test",
+            message: "hello,dly"
         }
     });
 </script>

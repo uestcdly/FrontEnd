@@ -7,3 +7,5 @@
        "hello,dly"
        vm.message="hello,mmm"
        "hello,mmm"
+    2. demo2.html: VUE 基本语法
+        v-bind: 用来绑定元素属性
